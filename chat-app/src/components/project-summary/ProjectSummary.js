@@ -2,6 +2,7 @@ import Avatar from "../avatar/Avatar"
 import { useFirestore } from "../../hooks/hooks/useFirestore"
 import { useHistory } from 'react-router-dom'
 import { useAuthContext } from "../../hooks/hooks/useAuthContext"
+import { Link } from "react-router-dom"
 
 export default function ProjectSummary({ project }) {
   const { updateDocument } = useFirestore('projects')
@@ -9,7 +10,6 @@ export default function ProjectSummary({ project }) {
   const history = useHistory()
  
   const handleClick = async (params) => {
-    console.log(params)
     await updateDocument(params,{
       closedProject: true
     })
@@ -35,9 +35,11 @@ export default function ProjectSummary({ project }) {
           ))}
         </div>
       </div>
-      {user.uid === project.createdBy.id && (
+     
+      {(user.uid === project.createdBy.id && project.closedProject === false) && (
         <button className="btn" onClick={() => handleClick(project.id)}>Hoàn thành dự án</button>
       )}
+      {project.closedProject === true &&  <button className="btn"><Link to="/">Dự án đã hoản thành, trở về trang chủ</Link></button>}
     </div>
   )
 }

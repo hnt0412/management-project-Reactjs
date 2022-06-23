@@ -7,22 +7,18 @@ export const useDocument = (collection,id) => {
 
     useEffect(() => {
         const ref = projectFirestore.collection(collection).doc(id)
-         const unsubscribe = ref.onSnapshot(snapshot => {
+        ref.onSnapshot(snapshot => {
            if(snapshot.data()){
             setDocument({...snapshot.data(),id:snapshot.id})
             setError(null)
            }else{
             setError('không tồn tại')
-           }
-       
+           }    
     }
         ,(error) => {
             console.log(error.message)
             setError('Lấy dữ liệu thất bại')
         })
-        return () => {
-            console.log('1')
-            unsubscribe()}
     },[collection,id])
 
     return { document,error }

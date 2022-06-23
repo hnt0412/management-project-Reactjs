@@ -38,3 +38,9 @@
     margin-top: 2px;
 }
 
+@media screen and (max-width: 1130px) {
+    .user-list {
+      display: none;
+    }
+  }
+

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { timestamp } from "../../firebase/config"
 import { useAuthContext } from "../../hooks/hooks/useAuthContext"
 import { useFirestore } from "../../hooks/hooks/useFirestore"
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import Avatar from "../../components/avatar/Avatar"
 
 export default function ProjectComments({ project }) {
@@ -30,6 +31,7 @@ export default function ProjectComments({ project }) {
 
   return (
     <div className="project-comments">
+      <div className="comment-show" id="style-scrollbar">
       <h4>Bình luận trong dự án</h4>
 
       <ul>
@@ -40,7 +42,7 @@ export default function ProjectComments({ project }) {
               <p>{comment.displayName}</p>
             </div>
             <div className="comment-date">
-              <p>date here</p>
+              <p>{formatDistanceToNow(comment.createdAt.toDate(), {addSuffix: true})}</p>
             </div>
             <div className="comment-content">
               <p>{comment.content}</p>
@@ -48,17 +50,18 @@ export default function ProjectComments({ project }) {
           </li>
         ))}
       </ul>
-
+      </div>
       <form className="add-comment" onSubmit={handleSubmit}>
-        <label>
-          <span>Viết bình luận:</span>
-          <textarea 
-            onChange={(e) => setNewComment(e.target.value)}
-            value={newComment}
-          ></textarea>
-        </label>
-        <button className="btn">Thêm bình luận</button>
-      </form>
+    <label>
+      <span>Viết bình luận:</span>
+      <textarea 
+        onChange={(e) => setNewComment(e.target.value)}
+        value={newComment}
+      ></textarea>
+    </label>
+    <button className="btn">Thêm bình luận</button>
+  </form>
     </div>
+    
   )
 }

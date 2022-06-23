@@ -5,7 +5,7 @@ const Profile = () => {
     return (
         <>
         <div>
-            profile
+            Chức năng này đang trong quá trình hoàn thiện, sorry...
         </div>
         </>
     )

@@ -37,10 +37,6 @@ export const useSignup = () => {
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })
 
-      // if (isCancelled) {
-      //   setIsPending(false)
-      //   setError(null)
-      // }
         setIsPending(false)
         setError(null)
     } 
@@ -52,10 +48,10 @@ export const useSignup = () => {
     }
   }
 
-  // useEffect(() => {
-  //   console.log('clean func')
-  //   return () => setIsCancelled(true)
-  // }, [])
+  useEffect(() => {
+    console.log('clean func')
+    return () => setIsCancelled(true)
+  }, [])
 
   return { signup, error, isPending }
 }

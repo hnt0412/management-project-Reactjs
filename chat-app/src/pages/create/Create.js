@@ -249,9 +249,7 @@ export default function Create() {
             isMulti
           />
         </label>
-
         <button className="btn">Tạo mới</button>
-
         {formError && <p className="error">{formError}</p>}
       </form>
     </div>

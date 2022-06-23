@@ -36,6 +36,11 @@
   .project-summary + .btn {
     margin-top: 20px;
   }
+
+  .project-comments {
+    height: 460px;
+  }
+
   
   /* project comments */
   .project-comments label {
@@ -58,6 +63,30 @@
     box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
     background: #fff;
   }
+
+  .comment-show {
+    height: 460px;
+    overflow-y: scroll;
+  }
+  #style-scrollbar::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+  
+  #style-scrollbar::-webkit-scrollbar
+  {
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+  
+  #style-scrollbar::-webkit-scrollbar-thumb
+  {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+  }
   .comment-author {
     display: flex;
     align-items: center;
@@ -70,10 +99,17 @@
   }
   .comment-date {
     color: var(--text-color);
-    font-size: 0.9em;
+    font-size: 14px;
     margin: 4px 0 10px;
   }
   .comment-content {
     color: var(--text-color);
     font-size: 0.9em;
   }
+  .comment-content p {
+    color: black;
+  }
+  .btn a{
+    text-decoration: none;
+  }
+

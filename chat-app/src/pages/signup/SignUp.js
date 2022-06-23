@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './SignUp.css';
 
 import { useSignup } from '../../hooks/hooks/useSignup';
 
 const SignUp = () => {
+    const history = useHistory()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayName, setDisplayName] = useState('');
@@ -33,9 +35,10 @@ const SignUp = () => {
         console.log(thumbnail)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        signup(email,password,displayName,thumbnail)
+        await signup(email,password,displayName,thumbnail)
+        history.push('/')
     }
 
     return (

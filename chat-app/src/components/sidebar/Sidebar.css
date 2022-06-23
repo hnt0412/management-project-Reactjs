@@ -1,6 +1,5 @@
 .sidebar{
     width: 300px;
-    min-width: 300px;
     background: var(--primary-color);
     min-height: 100vh;
     box-sizing: border-box;
@@ -53,3 +52,14 @@
 .sidebar .links .active img {
     filter: invert(40%);
 }
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+@media screen and (max-width: 1130px) {
+    .sidebar {
+      width: 200px;
+    }
+  }

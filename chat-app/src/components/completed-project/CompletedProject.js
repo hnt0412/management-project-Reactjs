@@ -26,12 +26,12 @@ const CompletedProject = () => {
                         <Avatar src={user.photoURL} />
                         </li>
               ))}
-            </ul>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+                    </ul>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
             <p><strong style={{marginRight: '30px'}}>Người đóng góp nhiều nhất:</strong><Avatar src={user.photoURL} /></p>
           </div>
         </Link>

@@ -1,22 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './Login.css';
-
 import { useHistory } from 'react-router-dom';
 import { useLogin } from '../../hooks/hooks/useLogin';
+import { useAuthContext } from '../../hooks/hooks/useAuthContext';
 
 const Login = () => {
+    const { user } = useAuthContext()
+    console.log(user)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory()
 
     const { login,isPending,error } = useLogin()
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        login(email,password)
+        await login(email,password)
         history.push('/')
     }
-
     return (
         <form className='auth-form' onSubmit={handleSubmit}>
             <h2>Đăng nhập</h2>
